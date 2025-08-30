@@ -24,12 +24,29 @@ bool Array::Add(int value) {
 
 // Insert value at specified index, shifting elements to the right
 bool Array::InsertAt(int index, int value) {
-    return false;
+    if (index < 0 || index > size_ || size_ >= 100)
+        return false;
+
+    for (int i = size_; i > index; i--) {
+        data_[i] = data_[i - 1];
+    }
+
+    data_[index] = value;
+    size_++;
+    return true;
 }
 
 // Delete element at index, shifting elements left
 bool Array::DeleteAt(int index) {
-    return false;
+    if (index < 0 || index >= size_)
+        return false;
+
+    for (int i = index; i < size_ - 1; i++) {
+        data_[i] = data_[i + 1];
+    }
+
+    size_--;
+    return true;
 }
 
 // Update element at index
@@ -53,6 +70,10 @@ void Array::Print() const {
 
 // Get current size
 int Array::Size() const {
+    if (index < 0 || index >= size_)
+        return false;
+
+    data_[index] = new_value;
     return size_;
 }
 
