@@ -55,7 +55,7 @@ bool Array::UpdateAt(int index, int new_value) {
         return false;
 
     data_[index] = new_value;
-    return size_;
+    return true;
 }
 
 // Print all elements
