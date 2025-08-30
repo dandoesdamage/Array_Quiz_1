@@ -51,7 +51,11 @@ bool Array::DeleteAt(int index) {
 
 // Update element at index
 bool Array::UpdateAt(int index, int new_value) {
-    return false;
+    if (index < 0 || index >= size_)
+        return false;
+
+    data_[index] = new_value;
+    return size_;
 }
 
 // Print all elements
